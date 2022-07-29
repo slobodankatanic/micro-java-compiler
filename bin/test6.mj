@@ -1,0 +1,58 @@
+program MJProgram
+
+int x; int y;
+
+record R {
+	int a;
+	int arrR[];
+}	
+
+R r;	
+	
+{
+	
+	int funWithPars(int a, int b) {
+		print(a + b);		
+		return a - b;
+	}
+	
+	int k() int c; int d; {
+		c = 2;
+		print('k');
+		print('r');
+		print('c');
+		print('a');	
+		
+		// d = funWithPars(300, 150);
+		// print(d);
+		
+		// return c + 888;
+		return funWithPars(300, 150);
+	}		
+	
+	void main() int arr[]; int lav; {
+		// dodamo ove printove
+		x = 10;
+		x++;
+		print(x);
+		
+		r = new R;
+		r.arrR = new int[10];
+		r.a = 17;
+		r.a++;
+		
+		r.arrR[2] = 4;
+		r.arrR[2]--;
+		print(r.arrR[2]);
+		
+		arr = new int[10];
+		arr[0] = 101;
+		arr[0]++;
+		print(arr[0]);
+		print(r.a);				
+		print(r.arrR[3 * 2 + 4 + 2 * 3 - 9 / 3 + 7 % 5 - 13]);
+		lav = (10 + 3) * 3;
+		print(lav);
+		print(k());		
+	}
+}

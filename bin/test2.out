@@ -1,0 +1,363 @@
+Program(
+  ProgName(
+   mojProgram
+  ) [ProgName]
+  ProgramPartsVar(
+    ProgramPartsVar(
+      ProgramPartsVar(
+        ProgramPartsConst(
+          ProgramPartsConst(
+            NoProgramParts(
+            ) [NoProgramParts]
+            ConstDecl(
+              Type(
+               int
+              ) [Type]
+              ConstListSingle(
+                ConstantNumber(
+                 c
+                 4
+                ) [ConstantNumber]
+              ) [ConstListSingle]
+            ) [ConstDecl]
+          ) [ProgramPartsConst]
+          ConstDecl(
+            Type(
+             int
+            ) [Type]
+            ConstListSingle(
+              ConstantNumber(
+               size
+               10
+              ) [ConstantNumber]
+            ) [ConstListSingle]
+          ) [ConstDecl]
+        ) [ProgramPartsConst]
+        VarDecl(
+          Type(
+           int
+          ) [Type]
+          VarListMulti(
+            VarListDerived1(
+            ) [VarListDerived1]
+            VarSingle(
+             b
+            ) [VarSingle]
+          ) [VarListMulti]
+        ) [VarDecl]
+      ) [ProgramPartsVar]
+      VarDecl(
+        Type(
+         int
+        ) [Type]
+        VarListDerived1(
+        ) [VarListDerived1]
+      ) [VarDecl]
+    ) [ProgramPartsVar]
+    VarDecl(
+      Type(
+       bool
+      ) [Type]
+      VarListSingle(
+        VarSingle(
+         bl
+        ) [VarSingle]
+      ) [VarListSingle]
+    ) [VarDecl]
+  ) [ProgramPartsVar]
+  MethodDeclarations(
+    MethodDeclarations(
+      MethodDeclarations(
+        MethodDeclarations(
+          NoMethodDecl(
+          ) [NoMethodDecl]
+          MethodDecl(
+            MethodTypeName(
+              RetType(
+                Type(
+                 int
+                ) [Type]
+              ) [RetType]
+             f
+            ) [MethodTypeName]
+            FormalParams(
+              FormParameters(
+                FormParameters(
+                  FormParameter(
+                    ParameterSingle(
+                      Type(
+                       char
+                      ) [Type]
+                     ch
+                    ) [ParameterSingle]
+                  ) [FormParameter]
+                  ParameterSingle(
+                    Type(
+                     int
+                    ) [Type]
+                   a
+                  ) [ParameterSingle]
+                ) [FormParameters]
+                ParameterSingle(
+                  Type(
+                   int
+                  ) [Type]
+                 arg
+                ) [ParameterSingle]
+              ) [FormParameters]
+            ) [FormalParams]
+            FieldDeclarations(
+              NoFieldDecl(
+              ) [NoFieldDecl]
+              FieldDecl(
+                Type(
+                 int
+                ) [Type]
+                FieldListSingle(
+                 x
+                ) [FieldListSingle]
+              ) [FieldDecl]
+            ) [FieldDeclarations]
+            StmtList(
+              StmtList(
+                NoStmt(
+                ) [NoStmt]
+                Statement(
+                  MatchedStmt(
+                    ErrorStmt(
+                    ) [ErrorStmt]
+                  ) [MatchedStmt]
+                ) [Statement]
+              ) [StmtList]
+              Statement(
+                MatchedStmt(
+                  ReturnStmt(
+                    Exprss(
+                      AddExpr(
+                        AddExpr(
+                          TermExpr(
+                            TermFactor(
+                              FactorNumber(
+                               10
+                              ) [FactorNumber]
+                            ) [TermFactor]
+                          ) [TermExpr]
+                          Add(
+                          ) [Add]
+                          TermFactor(
+                            FactorNumber(
+                             10
+                            ) [FactorNumber]
+                          ) [TermFactor]
+                        ) [AddExpr]
+                        Sub(
+                        ) [Sub]
+                        TermFactor(
+                          FactorNumber(
+                           20
+                          ) [FactorNumber]
+                        ) [TermFactor]
+                      ) [AddExpr]
+                    ) [Exprss]
+                  ) [ReturnStmt]
+                ) [MatchedStmt]
+              ) [Statement]
+            ) [StmtList]
+          ) [MethodDecl]
+        ) [MethodDeclarations]
+        MethodDecl(
+          MethodTypeName(
+            RetVoid(
+            ) [RetVoid]
+           v1
+          ) [MethodTypeName]
+          FormalParams(
+            FormParameters(
+              FormParsDerived1(
+              ) [FormParsDerived1]
+              ParameterSingle(
+                Type(
+                 int
+                ) [Type]
+               r
+              ) [ParameterSingle]
+            ) [FormParameters]
+          ) [FormalParams]
+          NoFieldDecl(
+          ) [NoFieldDecl]
+          NoStmt(
+          ) [NoStmt]
+        ) [MethodDecl]
+      ) [MethodDeclarations]
+      MethodDecl(
+        MethodTypeName(
+          RetVoid(
+          ) [RetVoid]
+         v2
+        ) [MethodTypeName]
+        FormalParams(
+          FormParsDerived1(
+          ) [FormParsDerived1]
+        ) [FormalParams]
+        NoFieldDecl(
+        ) [NoFieldDecl]
+        NoStmt(
+        ) [NoStmt]
+      ) [MethodDecl]
+    ) [MethodDeclarations]
+    MethodDecl(
+      MethodTypeName(
+        RetVoid(
+        ) [RetVoid]
+       main
+      ) [MethodTypeName]
+      NoFormalParams(
+      ) [NoFormalParams]
+      FieldDeclarations(
+        FieldDeclarations(
+          NoFieldDecl(
+          ) [NoFieldDecl]
+          FieldDecl(
+            Type(
+             int
+            ) [Type]
+            FieldListMulti(
+              FieldListSingle(
+               x
+              ) [FieldListSingle]
+              VarSingle(
+               i
+              ) [VarSingle]
+            ) [FieldListMulti]
+          ) [FieldDecl]
+        ) [FieldDeclarations]
+        FieldDecl(
+          Type(
+           char
+          ) [Type]
+          FieldListSingle(
+           c
+          ) [FieldListSingle]
+        ) [FieldDecl]
+      ) [FieldDeclarations]
+      StmtList(
+        StmtList(
+          StmtList(
+            StmtList(
+              NoStmt(
+              ) [NoStmt]
+              Statement(
+                MatchedStmt(
+                  DesignatorStmt(
+                    DesignatorStmtInc(
+                      DesignatorIdent(
+                       x
+                      ) [DesignatorIdent]
+                    ) [DesignatorStmtInc]
+                  ) [DesignatorStmt]
+                ) [MatchedStmt]
+              ) [Statement]
+            ) [StmtList]
+            Statement(
+              UnmatchedStmt(
+                UnmatchedIf(
+                  IfStart(
+                    ConditionDerived1(
+                    ) [ConditionDerived1]
+                  ) [IfStart]
+                  Statement(
+                    MatchedStmt(
+                      StmtsMatched(
+                        StmtList(
+                          NoStmt(
+                          ) [NoStmt]
+                          Statement(
+                            MatchedStmt(
+                              PrintStmtNoNum(
+                                Exprss(
+                                  TermExpr(
+                                    TermFactor(
+                                      FactorNumber(
+                                       10
+                                      ) [FactorNumber]
+                                    ) [TermFactor]
+                                  ) [TermExpr]
+                                ) [Exprss]
+                              ) [PrintStmtNoNum]
+                            ) [MatchedStmt]
+                          ) [Statement]
+                        ) [StmtList]
+                      ) [StmtsMatched]
+                    ) [MatchedStmt]
+                  ) [Statement]
+                ) [UnmatchedIf]
+              ) [UnmatchedStmt]
+            ) [Statement]
+          ) [StmtList]
+          Statement(
+            MatchedStmt(
+              DesignatorStmt(
+                DesignatorStmtAssign(
+                  DesignatorIdent(
+                   c
+                  ) [DesignatorIdent]
+                  Assignop(
+                  ) [Assignop]
+                  Exprss(
+                    TermExpr(
+                      TermFactor(
+                        FactorNumber(
+                         4
+                        ) [FactorNumber]
+                      ) [TermFactor]
+                    ) [TermExpr]
+                  ) [Exprss]
+                ) [DesignatorStmtAssign]
+              ) [DesignatorStmt]
+            ) [MatchedStmt]
+          ) [Statement]
+        ) [StmtList]
+        Statement(
+          MatchedStmt(
+            ReturnVoidStmt(
+            ) [ReturnVoidStmt]
+          ) [MatchedStmt]
+        ) [Statement]
+      ) [StmtList]
+    ) [MethodDecl]
+  ) [MethodDeclarations]
+) [Program]
+Type int: int, -1, -1 
+Type char: char, -1, -1 
+Con eol: char, 10, 0 
+Con null: Class [], 0, 0 
+Meth chr: char, 0, 1 
+   Var i: int, 0, 1 
+
+Meth ord: int, 0, 1 
+   Var ch: char, 0, 1 
+
+Meth len: int, 0, 1 
+   Var arr: Arr of notype, 0, 1 
+
+Type bool: , 0, 1 
+Prog mojProgram: notype, 0, 1 
+   Con c: int, 4, 0 
+   Con size: int, 10, 0 
+   Var b: int, 0, 0 
+   Var bl: , 1, 0 
+   Meth f: int, 0, 3 
+      Var ch: char, 0, 1 
+      Var a: int, 1, 1 
+      Var arg: int, 2, 1 
+      Var x: int, 3, 1 
+
+   Meth v1: notype, 0, 1 
+      Var r: int, 0, 1 
+
+   Meth v2: notype, 0, 0 
+
+   Meth main: notype, 0, 0 
+      Var x: int, 0, 1 
+      Var i: int, 1, 1 
+      Var c: char, 2, 1 

@@ -1,0 +1,47 @@
+program test302
+
+int i;
+
+{			
+	void main() int j; {
+		i = 2;
+		j = 10;
+		
+		if (i == 2) {
+			do {
+				if (j == 5) {
+					break;
+				}
+				if (j % 2 == 0) {
+					print(j);
+					print(' ');
+					print('p');	
+					print('a');
+					print('r');
+					print('a');
+					print('n');
+					print(eol);
+				} else {
+					print(j);
+					print(' ');
+					print('n');	
+					print('e');
+					print(' ');
+					print('p');	
+					print('a');
+					print('r');
+					print('a');
+					print('n');
+					print(eol);
+				}
+				j--;
+			} while(j > 0);
+						
+			print(10);
+			
+		} else if (i > 2) {
+			print(20);
+		} else print('A');
+	}
+}
+

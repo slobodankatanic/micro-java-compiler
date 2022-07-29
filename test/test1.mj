@@ -1,0 +1,41 @@
+program mojProgram
+
+const int f = 2, b = 4, c = 4;
+const int size = 10;
+
+int f, b, c, d;
+
+Board board;
+
+record krca {
+	int a;
+	int b, c, d, d;	
+}
+
+record Board {
+	int rows, columns;
+}
+
+{	
+	int f(char ch, int a, int arg)
+		int x;		
+	{		
+		break;
+		continue;
+		print('a', 10);
+		return new Board / 10 + 10 - 20;
+	}
+	void main() int x, i; char c;
+	{
+		print('a', 10);
+		f(10);
+		f('a', 10, false);
+		fja(a);
+		
+		b++;
+				
+		c = 4;
+		
+		return;
+	}
+}

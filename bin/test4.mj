@@ -1,0 +1,71 @@
+//Test 302
+
+program test302
+
+const int jedan = 1;
+
+int i;
+bool ibool;
+
+int niz2;
+
+record Test {
+ int niz[];
+ int a;
+}
+
+Test t1, t2;
+
+{
+	
+	int sum(int z, int d)
+	{
+		return z + d;
+	}
+	
+	int inkrement(int a, int inc) 
+		int pom; 
+	{		
+		pom = a;		
+		return sum(a,pom);
+	}
+	
+	bool verify() {
+		print('v');
+		return false;
+	}	
+	
+	void main()
+		int j; int cnd;
+	{	
+		 	
+		i = 0;
+	
+		do {
+			j = 0;
+			
+			do {
+				cnd = 2;
+				
+				do {
+					print('a');
+					print('l');
+					print('a');
+					print(eol);
+					cnd--;
+				} while(cnd > 0);
+				
+				print(i, 1);
+				print(',');
+				print(j, 1);
+				print(eol);
+				j++;		
+			} while(j < 3);
+			
+			i++;
+			
+			print(eol);
+		} while(i < 5);
+	}
+}
+

@@ -1,0 +1,324 @@
+package rs.ac.bg.etf.pp1;
+
+import java_cup.runtime.*;
+import org.apache.log4j.*;
+import rs.ac.bg.etf.pp1.ast.*; 
+
+parser code {:
+	
+	boolean errorDetected;
+	
+	Logger log = Logger.getLogger(getClass());       
+     
+    public void report_fatal_error(String message, Object info) throws java.lang.Exception {
+      done_parsing();
+      report_error(message, info);
+    }
+  
+    public void syntax_error(Symbol cur_token) {
+        report_error("\nSintaksna greska", cur_token);
+    }
+  
+    public void unrecovered_syntax_error(Symbol cur_token) throws java.lang.Exception {
+        report_fatal_error("Fatalna greska, parsiranje se ne moze nastaviti", cur_token);
+    }
+
+    public void report_error(String message, Object info) {
+	    errorDetected = true;
+    	StringBuilder msg = new StringBuilder(message); 
+    	if (info instanceof Symbol)
+            msg.append (" na liniji ").append(((Symbol)info).left).append(", ").append(((Symbol)info).right);
+        log.error(msg.toString());
+    }
+
+:}
+
+init with {:
+	errorDetected = false;
+:}
+
+scan with {:
+	Symbol s = this.getScanner().next_token();
+	if (s != null && s.value != null) 
+		log.info(s.toString() + " " + s.value.toString());
+	return s;
+:}
+
+terminal PROGRAM;
+terminal BREAK, CLASS, ENUM, ELSE, CONST, IF; 
+terminal DO, WHILE, NEW, PRINT, READ, RETURN, VOID, EXTENDS, CONTINUE, THIS, SUPER, GOTO, RECORD;
+terminal PLUS, MINUS, MUL, FORWARD_SLASH, PERCENT, EQUAL_TO, NOT_EQUAL_TO, GREATER, GREATER_OR_EQUAL, LESS, LESS_OR_EQUAL, AND;
+terminal OR, EQUAL, INCREMENT, DECREMENT, SEMICOLON, COLON, COMMA, DOT, LEFT_PAREN, RIGHT_PAREN, LEFT_SQUARE_BRACKET;
+terminal RIGHT_SQUARE_BRACKET, LEFT_BRACE, RIGHT_BRACE;
+terminal Boolean BOOL_CONSTANT;
+terminal Integer NUMBER_CONSTANT;
+terminal String IDENTIFIER;
+terminal Character CHAR_CONSTANT;
+terminal TRIPLE_DOT;
+
+nonterminal ProgramPartsList, MethodDeclList, ConstDecl, VarDecl, ClassDecl;
+nonterminal ConstList, SingleConstant, VarList, SingleVar, VarDeclList, FormPars, SingleFormParameter, Relop, Addop, Mulop;
+nonterminal Assignop, Statement, SingleStatement, Statements, StatementList, MethodRetType, FormalParameters;
+nonterminal ActPars, ActualParameters, DesignatorStatement;
+nonterminal BaseClass, ClassMethods, DesignatorIdentifier, DesignatorPart, ExprPart, FieldDeclList, FieldDecl, FieldList;
+nonterminal Matched, Unmatched;
+
+nonterminal DesignatorBuilder, DoWhileStart, DoWhileEnd, IfStart, Else;
+
+nonterminal rs.etf.pp1.symboltable.concepts.Obj ProgName, Program, MethodDecl, MethodTypeName;
+nonterminal rs.etf.pp1.symboltable.concepts.Obj RecordDeclName, RecordDecl, Designator;
+
+nonterminal rs.etf.pp1.symboltable.concepts.Struct Type, Expr, Expression, Term, Factor;
+nonterminal rs.etf.pp1.symboltable.concepts.Struct CondFact, CondTerm, Condition;
+
+nonterminal VarArgs;
+
+Program ::= (Program) PROGRAM ProgName:p ProgramPartsList LEFT_BRACE MethodDeclList RIGHT_BRACE;
+
+ProgName ::= (ProgName) IDENTIFIER:progName;
+
+ProgramPartsList ::= (ProgramPartsConst) ProgramPartsList ConstDecl				
+				|
+				(ProgramPartsVar) ProgramPartsList VarDecl
+				|
+				(ProgramPartsClass) ProgramPartsList ClassDecl
+				|
+				(ProgramPartsRecord) ProgramPartsList RecordDecl
+				|				
+				(NoProgramParts) /* epsilon */
+				;			
+
+ConstDecl ::= (ConstDecl) CONST Type ConstList SEMICOLON;
+
+ConstList ::= (ConstListMulti) ConstList COMMA SingleConstant
+	      | 
+	      (ConstListSingle) SingleConstant
+	      |
+	      error:l {: parser.report_error("Izvrsen oporavak pri definiciji globalne promenljive na liniji " + lleft, null); :}
+	      ;
+
+SingleConstant ::= (ConstantNumber) IDENTIFIER:constName EQUAL NUMBER_CONSTANT:constValue
+		        |
+		        (ConstantChar) IDENTIFIER:constName EQUAL CHAR_CONSTANT:constValue
+		        |
+		        (ConstantBool) IDENTIFIER:constName EQUAL BOOL_CONSTANT:constValue
+		        ;
+
+VarDeclList ::= (VarDeclarations) VarDeclList VarDecl
+			    |
+				(NoVarDecl) /* epsilon */
+				;
+		  
+VarDecl ::= (VarDecl) Type VarList SEMICOLON;
+
+VarList ::= (VarListMulti) VarList COMMA SingleVar
+		|
+		(VarListSingle) SingleVar
+		|
+		error:l {: parser.report_error("Izvrsen oporavak pri definiciji globalne promenljive na liniji " + lleft, null); :}		
+		;
+
+SingleVar ::= (VarArray) IDENTIFIER:varName LEFT_SQUARE_BRACKET RIGHT_SQUARE_BRACKET
+		  |
+		  (VarSingle) IDENTIFIER:varName
+		  ;
+
+FieldDeclList ::= (FieldDeclarations) FieldDeclList FieldDecl
+			    |
+				(NoFieldDecl) /* epsilon */
+				;
+		  
+FieldDecl ::= (FieldDecl) Type FieldList SEMICOLON;
+
+FieldList ::= (FieldListMulti) FieldList COMMA SingleVar
+		|
+		(FieldListSingle) IDENTIFIER:varName
+		|				
+		(FieldListArray) IDENTIFIER:varName LEFT_SQUARE_BRACKET RIGHT_SQUARE_BRACKET
+		;
+		
+ClassDecl ::= (ClassDecl) CLASS IDENTIFIER BaseClass LEFT_BRACE FieldDeclList ClassMethods RIGHT_BRACE;
+
+BaseClass ::= (BaseClassName) EXTENDS Type
+			  |
+			  (NoBaseClass) /* epsilon */
+			  ;
+
+ClassMethods ::= (ClassMethodsList) LEFT_BRACE MethodDeclList RIGHT_BRACE
+				 |
+				 (NoClassMethods) /* epsilon */
+				 ;
+
+RecordDecl ::= (RecordDecl) RecordDeclName LEFT_BRACE FieldDeclList RIGHT_BRACE;
+
+RecordDeclName ::= (RecordDeclName) RECORD IDENTIFIER:recordName;
+
+MethodDeclList ::= (MethodDeclarations) MethodDeclList MethodDecl
+			   |
+			   (NoMethodDecl) /* epsilon */
+			   ;
+
+MethodDecl ::= (MethodDecl) MethodTypeName LEFT_PAREN FormalParameters RIGHT_PAREN FieldDeclList LEFT_BRACE StatementList RIGHT_BRACE; 
+
+MethodTypeName ::= (MethodTypeName) MethodRetType IDENTIFIER:methName;
+
+MethodRetType ::= (RetType) Type:methType | (RetVoid) VOID:methTypeVoid;
+
+FormalParameters ::= (FormalParams) FormPars
+				 |
+				 (FormalParamsWithVar) FormPars COMMA VarArgs
+				 |
+				 (FormalParamsOnlyVar) VarArgs				 
+				 |
+				 (NoFormalParams) /* epsilon */
+				 ;
+
+FormPars ::= (FormParameters) FormPars COMMA SingleFormParameter
+         |
+         (FormParameter) SingleFormParameter
+         |
+         error:l {: parser.report_error("Izvrsen oporavak pri deklaraciji formalnog parametra na liniji " + lleft, null); :}
+         ;
+
+SingleFormParameter ::= (ParameterArray) Type:paramType IDENTIFIER:paramName LEFT_SQUARE_BRACKET RIGHT_SQUARE_BRACKET
+        			    |
+        			    (ParameterSingle) Type:paramType IDENTIFIER:paramName
+        			    ;
+
+VarArgs ::= (VarArgs) Type:typeName TRIPLE_DOT IDENTIFIER:varArgsName;
+
+Type ::= (Type) IDENTIFIER:typeName;
+
+Statement ::= (Statement) SingleStatement;
+
+StatementList ::= (StmtList) StatementList Statement
+			  	  |
+			  	  (NoStmt) /* epsilon */
+			  	  ;
+
+SingleStatement ::= (MatchedStmt) Matched
+					|
+					(UnmatchedStmt) Unmatched					
+					; 
+
+Unmatched ::= (UnmatchedIf) IfStart Statement
+			  |
+			  (UnmatchedIfElse) IfStart Matched Else Unmatched			  			 
+			  ;
+
+Matched ::= (DesignatorStmt) DesignatorStatement SEMICOLON
+		|
+		(ErrorStmt) error SEMICOLON:l
+		{: parser.report_error("Izvrsen oporavak pri konstrukciji iskaza dodele na liniji " + lleft, null); :}
+		|
+		(IfElseStmt) IfStart Matched Else Matched
+		|
+		(DoWhileStmt) DoWhileStart Statement DoWhileEnd LEFT_PAREN Condition RIGHT_PAREN SEMICOLON
+		|
+		(BreakStmt) BREAK SEMICOLON
+		|
+		(ContinueStmt) CONTINUE SEMICOLON
+		|
+		(ReturnVoidStmt) RETURN SEMICOLON
+		|
+		(ReturnStmt) RETURN Expr SEMICOLON
+		|
+		(ReadStmt) READ LEFT_PAREN Designator RIGHT_PAREN SEMICOLON
+		|
+		(PrintStmtNoNum) PRINT LEFT_PAREN Expr RIGHT_PAREN SEMICOLON
+		|
+		(PrintStmtNum) PRINT LEFT_PAREN Expr COMMA NUMBER_CONSTANT RIGHT_PAREN SEMICOLON
+		|
+		(StmtsMatched) LEFT_BRACE StatementList RIGHT_BRACE
+		;
+
+DoWhileStart ::= (DoWhileStart) DO;
+
+DoWhileEnd ::= (DoWhileEnd) WHILE;
+
+IfStart ::= (IfStart) IF LEFT_PAREN Condition RIGHT_PAREN;
+
+Else ::= (Else) ELSE;
+
+Expr ::= (MinusExpr) MINUS Expression
+	     |
+	     (Exprss) Expression
+		 ; 
+
+Expression ::= (AddExpr) Expression Addop Term
+     	 |
+     	 (TermExpr) Term
+	 	 ;
+
+Term ::= (TermList) Term Mulop Factor
+		 |
+		 (TermFactor) Factor
+		 ;
+
+Factor ::= (FactorDesignatorNoPars) Designator
+		   |
+		   (FactorDesignatorPars) Designator LEFT_PAREN ActualParameters RIGHT_PAREN
+		   |
+		   (FactorNumber) NUMBER_CONSTANT
+		   |
+		   (FactorChar) CHAR_CONSTANT
+		   |
+		   (FactorBool) BOOL_CONSTANT
+		   |
+		   (FactorNewNoExpr) NEW Type
+		   |
+		   (FactorNewExpr) NEW Type LEFT_SQUARE_BRACKET Expr RIGHT_SQUARE_BRACKET
+		   |
+		   (FactorExpr) LEFT_PAREN Expr RIGHT_PAREN
+		   ;
+
+DesignatorStatement ::= (DesignatorStmtAssign) Designator Assignop Expr							
+						|												
+						(DesignatorStmtFunCall) Designator LEFT_PAREN ActualParameters RIGHT_PAREN
+						|
+						(DesignatorStmtInc) Designator:d INCREMENT	
+						|
+						(DesignatorStmtDec) Designator:d DECREMENT
+						;
+
+ActualParameters ::= (ActParams) ActPars
+				 |
+				 (NoActParams) /* epsilon */
+				 ;
+
+ActPars ::= (ActParsList) ActPars COMMA Expr
+		    |
+		    (ActParExpr) Expr
+		    ;
+
+Condition ::= (ConditionList) Condition OR CondTerm
+			  |
+			  (ConditionSingle) CondTerm			  
+			  |
+			  error:l {: parser.report_error("Izvrsen oporavak u logickom izrazu na liniji " + lleft, null); :}
+			  ;
+
+CondTerm ::= (CondTermList) CondTerm AND CondFact
+			 |
+			 (CondTermSingle) CondFact
+			 ;
+
+CondFact ::= (CondFactList) CondFact Relop Expr
+			 |
+			 (CondFactExpr) Expr
+			 ;
+
+Designator ::= (DesignatorDot) Designator:d DOT IDENTIFIER:designatorName
+			   |
+			   (DesignatorExpr) Designator:d LEFT_SQUARE_BRACKET Expr RIGHT_SQUARE_BRACKET
+			   |
+			   (DesignatorIdent) IDENTIFIER:designatorName
+			   ;
+
+Assignop ::= (Assignop) EQUAL;
+
+Relop ::= (Equal) EQUAL_TO | (NotEqual) NOT_EQUAL_TO | (Greater) GREATER | (GreaterEqual) GREATER_OR_EQUAL | (Less) LESS | (LessEqual) LESS_OR_EQUAL;
+
+Addop ::= (Add) PLUS | (Sub) MINUS;
+
+Mulop ::= (Mul) MUL | (Div) FORWARD_SLASH | (Mod) PERCENT;		  		  		  		

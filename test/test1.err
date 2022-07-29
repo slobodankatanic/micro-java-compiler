@@ -1,0 +1,20 @@
+ERROR 19:30:42,182 - Greska: ime f jer vec deklarisano u istom opsegu! na liniji 6
+ERROR 19:30:42,183 - Greska: ime b jer vec deklarisano u istom opsegu! na liniji 6
+ERROR 19:30:42,183 - Greska: ime c jer vec deklarisano u istom opsegu! na liniji 6
+ERROR 19:30:42,183 - Greska: nije pronadjen tip Board u tabeli simbola! 
+ERROR 19:30:42,183 - Greska: ime d jer vec deklarisano u istom opsegu! na liniji 12
+ERROR 19:30:42,184 - Greska: break iskaz se moze koristiti samo unutar do-while petlje
+ERROR 19:30:42,185 - Greska: break iskaz se moze koristiti samo unutar do-while petlje
+ERROR 19:30:42,185 - Greska: operandi nisu tipa int na liniji 30
+ERROR 19:30:42,185 - Greska: operandi nisu tipa int na liniji 30
+ERROR 19:30:42,185 - Greska: operandi nisu tipa int na liniji 30
+ERROR 19:30:42,185 - Greska: iskaz return naredne ne odgovara tipu funkcije na liniji 30
+ERROR 19:30:42,186 - Greska: funkciji fun nije prosledjen odgovarajuci broj argumenata na liniji 35
+ERROR 19:30:42,187 - Greska: stvarni parametar na poziciji 3 nije odgovarajuceg tipa na liniji 36
+ERROR 19:30:42,188 - Greska na liniji 37 : ime fja nije deklarisano!
+ERROR 19:30:42,189 - Greska na liniji 37 : ime a nije deklarisano!
+ERROR 19:30:42,189 - Greska: noObj nije funkcija na liniji 37
+ERROR 19:30:42,190 - Greska: b nije odgovarajuceg tipa na liniji 39
+ERROR 19:30:42,190 - Greska: tipovi nisu odgovarajuci pri dodeli vrednosti na liniji 41
+
+ERROR 15:57:50,027 - Parsiranje NIJE uspesno zavrseno!

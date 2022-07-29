@@ -1,0 +1,74 @@
+// Test301
+
+program test301
+
+	const int nula = 0;
+	const int jedan = 1;
+	const int pet = 5;
+
+	int niz[];
+	char nizch[];		
+	
+	int arr[];
+	
+{
+	void printArray(int arr[], int size) 
+		int i; 
+	{
+		i = 0;
+		
+		do {
+			print(arr[i]);
+			i++;
+		} while(i < size);
+		
+		print(eol);
+	}
+	
+	void main()	
+		int bodovi;
+		bool bt;
+		int i;
+		int size;
+	{
+		size = 3;
+		arr = new int[size];
+		
+		i = 0;
+		do {
+			arr[i] = i + 1;
+			i++;
+		} while(i < size);
+		
+		printArray(arr, 3);
+		
+		i = 0;
+		do {
+			arr[i]++;
+			i++;
+		} while(i < size);
+		
+		printArray(arr, 3);		
+		
+		i = 0;
+		do {
+			arr[i] = arr[i] * 2;
+			i++;
+		} while(i < size);
+		
+		printArray(arr, 3);		
+		
+		i = 0;
+		do {
+			if (arr[i] % 2 == 1) {
+				read(arr[i]);
+			}			
+			i++;
+		} while(i < size);
+		
+		printArray(arr, 3);
+		
+	}
+}
+
+

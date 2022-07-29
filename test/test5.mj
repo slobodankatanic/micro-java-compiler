@@ -1,0 +1,59 @@
+//Test 302
+
+program test302
+
+const int jedan = 1;
+
+int i;
+bool ibool;
+
+{
+	
+	int sum(int z, int d)
+	{
+		return z + d;
+	}
+	
+	int inkrement(int a, int inc) 
+		int pom; 
+	{		
+		pom = a;		
+		return sum(a,pom);
+	}
+	
+	bool verify() {
+		print('v');
+		return false;
+	}	
+	
+	void main()
+		int j; int cnd[];
+	{	
+		 	
+		i = 0;
+		j = 0;
+	
+		cnd = new int[5];
+		
+		cnd[0] = 3;
+		cnd[1] = 3;
+	
+		do {
+			do {
+				print(cnd[0]);
+				cnd[0]--;				
+				break;							
+			} while(cnd[0] > 0);
+			
+			print(cnd[1]);
+			cnd[1]--;
+			continue;
+			cnd[1]++;
+			
+		} while(cnd[1] > 0);
+		
+		print(cnd[0]);
+		print(cnd[1]);
+	}
+}
+

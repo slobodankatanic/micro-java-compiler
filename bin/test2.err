@@ -1,0 +1,22 @@
+ERROR 19:05:36,229 - 
+Sintaksna greska na liniji 6, 6
+ERROR 19:05:36,231 - Izvrsen oporavak pri definiciji globalne promenljive na liniji 6
+ERROR 19:05:36,234 - 
+Sintaksna greska na liniji 7, 8
+ERROR 19:05:36,234 - Izvrsen oporavak pri definiciji globalne promenljive na liniji 7
+ERROR 19:05:36,243 - 
+Sintaksna greska na liniji 15, 9
+ERROR 19:05:36,243 - Izvrsen oporavak pri konstrukciji iskaza dodele na liniji 15
+ERROR 19:05:36,252 - 
+Sintaksna greska na liniji 19, 15
+ERROR 19:05:36,253 - Izvrsen oporavak pri deklaraciji formalnog parametra na liniji 19
+ERROR 19:05:36,255 - 
+Sintaksna greska na liniji 23, 22
+ERROR 19:05:36,255 - Izvrsen oporavak pri deklaraciji formalnog parametra na liniji 23
+Leksicka greska (|) na liniji 31, pocevsi od kolone 8
+ERROR 19:05:36,260 - 
+Sintaksna greska na liniji 31, 10
+ERROR 19:05:36,260 - Izvrsen oporavak u logickom izrazu na liniji 31
+ERROR 19:05:36,287 - Greska: uslovni izraz nije tipa bool na liniji 31
+ERROR 19:05:36,287 - Greska: tipovi nisu odgovarajuci pri dodeli vrednosti na liniji 35
+ERROR 19:05:36,288 - Parsiranje NIJE uspesno zavrseno!

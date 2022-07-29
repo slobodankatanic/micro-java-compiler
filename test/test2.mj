@@ -1,0 +1,38 @@
+program mojProgram
+
+const int c = 4;
+const int size = 10;
+
+int f = 2, b;
+int err = 20;
+bool bl;
+
+
+{	
+	int f(char ch, int a, int arg)
+		int x;		
+	{				
+		ch = a-;
+		return 10 + 10 - 20;
+	}
+	
+	void v1(int ch/2, int r) {
+		
+	}
+	
+	void v2(int ch, int r+3) {
+		
+	}
+	
+	void main() int x, i; char c;
+	{
+		x++;
+		
+		if (x | y) {
+			print(10);
+		}
+			
+		c = 4;
+		return;
+	}
+}

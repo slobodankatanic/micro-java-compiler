@@ -1,0 +1,459 @@
+Program(
+  ProgName(
+   mojProgram
+  ) [ProgName]
+  ProgramPartsRecord(
+    ProgramPartsRecord(
+      ProgramPartsVar(
+        ProgramPartsVar(
+          ProgramPartsConst(
+            ProgramPartsConst(
+              NoProgramParts(
+              ) [NoProgramParts]
+              ConstDecl(
+                Type(
+                 int
+                ) [Type]
+                ConstListMulti(
+                  ConstListMulti(
+                    ConstListSingle(
+                      ConstantNumber(
+                       f
+                       2
+                      ) [ConstantNumber]
+                    ) [ConstListSingle]
+                    ConstantNumber(
+                     b
+                     4
+                    ) [ConstantNumber]
+                  ) [ConstListMulti]
+                  ConstantNumber(
+                   c
+                   4
+                  ) [ConstantNumber]
+                ) [ConstListMulti]
+              ) [ConstDecl]
+            ) [ProgramPartsConst]
+            ConstDecl(
+              Type(
+               int
+              ) [Type]
+              ConstListSingle(
+                ConstantNumber(
+                 size
+                 10
+                ) [ConstantNumber]
+              ) [ConstListSingle]
+            ) [ConstDecl]
+          ) [ProgramPartsConst]
+          VarDecl(
+            Type(
+             int
+            ) [Type]
+            VarListMulti(
+              VarListMulti(
+                VarListMulti(
+                  VarListSingle(
+                    VarSingle(
+                     f
+                    ) [VarSingle]
+                  ) [VarListSingle]
+                  VarSingle(
+                   b
+                  ) [VarSingle]
+                ) [VarListMulti]
+                VarSingle(
+                 c
+                ) [VarSingle]
+              ) [VarListMulti]
+              VarSingle(
+               d
+              ) [VarSingle]
+            ) [VarListMulti]
+          ) [VarDecl]
+        ) [ProgramPartsVar]
+        VarDecl(
+          Type(
+           Board
+          ) [Type]
+          VarListSingle(
+            VarSingle(
+             board
+            ) [VarSingle]
+          ) [VarListSingle]
+        ) [VarDecl]
+      ) [ProgramPartsVar]
+      RecordDecl(
+        RecordDeclName(
+         krca
+        ) [RecordDeclName]
+        FieldDeclarations(
+          FieldDeclarations(
+            NoFieldDecl(
+            ) [NoFieldDecl]
+            FieldDecl(
+              Type(
+               int
+              ) [Type]
+              FieldListSingle(
+               a
+              ) [FieldListSingle]
+            ) [FieldDecl]
+          ) [FieldDeclarations]
+          FieldDecl(
+            Type(
+             int
+            ) [Type]
+            FieldListMulti(
+              FieldListMulti(
+                FieldListMulti(
+                  FieldListSingle(
+                   b
+                  ) [FieldListSingle]
+                  VarSingle(
+                   c
+                  ) [VarSingle]
+                ) [FieldListMulti]
+                VarSingle(
+                 d
+                ) [VarSingle]
+              ) [FieldListMulti]
+              VarSingle(
+               d
+              ) [VarSingle]
+            ) [FieldListMulti]
+          ) [FieldDecl]
+        ) [FieldDeclarations]
+      ) [RecordDecl]
+    ) [ProgramPartsRecord]
+    RecordDecl(
+      RecordDeclName(
+       Board
+      ) [RecordDeclName]
+      FieldDeclarations(
+        NoFieldDecl(
+        ) [NoFieldDecl]
+        FieldDecl(
+          Type(
+           int
+          ) [Type]
+          FieldListMulti(
+            FieldListSingle(
+             rows
+            ) [FieldListSingle]
+            VarSingle(
+             columns
+            ) [VarSingle]
+          ) [FieldListMulti]
+        ) [FieldDecl]
+      ) [FieldDeclarations]
+    ) [RecordDecl]
+  ) [ProgramPartsRecord]
+  MethodDeclarations(
+    MethodDeclarations(
+      NoMethodDecl(
+      ) [NoMethodDecl]
+      MethodDecl(
+        MethodTypeName(
+          RetType(
+            Type(
+             int
+            ) [Type]
+          ) [RetType]
+         f
+        ) [MethodTypeName]
+        FormalParams(
+          FormParameters(
+            FormParameters(
+              FormParameter(
+                ParameterSingle(
+                  Type(
+                   char
+                  ) [Type]
+                 ch
+                ) [ParameterSingle]
+              ) [FormParameter]
+              ParameterSingle(
+                Type(
+                 int
+                ) [Type]
+               a
+              ) [ParameterSingle]
+            ) [FormParameters]
+            ParameterSingle(
+              Type(
+               int
+              ) [Type]
+             arg
+            ) [ParameterSingle]
+          ) [FormParameters]
+        ) [FormalParams]
+        FieldDeclarations(
+          NoFieldDecl(
+          ) [NoFieldDecl]
+          FieldDecl(
+            Type(
+             int
+            ) [Type]
+            FieldListSingle(
+             x
+            ) [FieldListSingle]
+          ) [FieldDecl]
+        ) [FieldDeclarations]
+        StmtList(
+          StmtList(
+            StmtList(
+              StmtList(
+                NoStmt(
+                ) [NoStmt]
+                Statement(
+                  MatchedStmt(
+                    BreakStmt(
+                    ) [BreakStmt]
+                  ) [MatchedStmt]
+                ) [Statement]
+              ) [StmtList]
+              Statement(
+                MatchedStmt(
+                  ContinueStmt(
+                  ) [ContinueStmt]
+                ) [MatchedStmt]
+              ) [Statement]
+            ) [StmtList]
+            Statement(
+              MatchedStmt(
+                PrintStmtNum(
+                  Exprss(
+                    TermExpr(
+                      TermFactor(
+                        FactorChar(
+                         a
+                        ) [FactorChar]
+                      ) [TermFactor]
+                    ) [TermExpr]
+                  ) [Exprss]
+                 10
+                ) [PrintStmtNum]
+              ) [MatchedStmt]
+            ) [Statement]
+          ) [StmtList]
+          Statement(
+            MatchedStmt(
+              ReturnStmt(
+                Exprss(
+                  AddExpr(
+                    AddExpr(
+                      TermExpr(
+                        TermList(
+                          TermFactor(
+                            FactorNewNoExpr(
+                              Type(
+                               Board
+                              ) [Type]
+                            ) [FactorNewNoExpr]
+                          ) [TermFactor]
+                          Div(
+                          ) [Div]
+                          FactorNumber(
+                           10
+                          ) [FactorNumber]
+                        ) [TermList]
+                      ) [TermExpr]
+                      Add(
+                      ) [Add]
+                      TermFactor(
+                        FactorNumber(
+                         10
+                        ) [FactorNumber]
+                      ) [TermFactor]
+                    ) [AddExpr]
+                    Sub(
+                    ) [Sub]
+                    TermFactor(
+                      FactorNumber(
+                       20
+                      ) [FactorNumber]
+                    ) [TermFactor]
+                  ) [AddExpr]
+                ) [Exprss]
+              ) [ReturnStmt]
+            ) [MatchedStmt]
+          ) [Statement]
+        ) [StmtList]
+      ) [MethodDecl]
+    ) [MethodDeclarations]
+    MethodDecl(
+      MethodTypeName(
+        RetVoid(
+        ) [RetVoid]
+       main
+      ) [MethodTypeName]
+      NoFormalParams(
+      ) [NoFormalParams]
+      FieldDeclarations(
+        FieldDeclarations(
+          NoFieldDecl(
+          ) [NoFieldDecl]
+          FieldDecl(
+            Type(
+             int
+            ) [Type]
+            FieldListMulti(
+              FieldListSingle(
+               x
+              ) [FieldListSingle]
+              VarSingle(
+               i
+              ) [VarSingle]
+            ) [FieldListMulti]
+          ) [FieldDecl]
+        ) [FieldDeclarations]
+        FieldDecl(
+          Type(
+           char
+          ) [Type]
+          FieldListSingle(
+           c
+          ) [FieldListSingle]
+        ) [FieldDecl]
+      ) [FieldDeclarations]
+      StmtList(
+        StmtList(
+          StmtList(
+            StmtList(
+              StmtList(
+                StmtList(
+                  NoStmt(
+                  ) [NoStmt]
+                  Statement(
+                    MatchedStmt(
+                      PrintStmtNum(
+                        Exprss(
+                          TermExpr(
+                            TermFactor(
+                              FactorChar(
+                               a
+                              ) [FactorChar]
+                            ) [TermFactor]
+                          ) [TermExpr]
+                        ) [Exprss]
+                       10
+                      ) [PrintStmtNum]
+                    ) [MatchedStmt]
+                  ) [Statement]
+                ) [StmtList]
+                Statement(
+                  MatchedStmt(
+                    ReadStmt(
+                      DesignatorIdent(
+                       b
+                      ) [DesignatorIdent]
+                    ) [ReadStmt]
+                  ) [MatchedStmt]
+                ) [Statement]
+              ) [StmtList]
+              Statement(
+                MatchedStmt(
+                  DesignatorStmt(
+                    DesignatorStmtFunCall(
+                      DesignatorIdent(
+                       fja
+                      ) [DesignatorIdent]
+                      ActParams(
+                        ActParExpr(
+                          Exprss(
+                            TermExpr(
+                              TermFactor(
+                                FactorDesignatorNoPars(
+                                  DesignatorIdent(
+                                   a
+                                  ) [DesignatorIdent]
+                                ) [FactorDesignatorNoPars]
+                              ) [TermFactor]
+                            ) [TermExpr]
+                          ) [Exprss]
+                        ) [ActParExpr]
+                      ) [ActParams]
+                    ) [DesignatorStmtFunCall]
+                  ) [DesignatorStmt]
+                ) [MatchedStmt]
+              ) [Statement]
+            ) [StmtList]
+            Statement(
+              MatchedStmt(
+                DesignatorStmt(
+                  DesignatorStmtInc(
+                    DesignatorIdent(
+                     b
+                    ) [DesignatorIdent]
+                  ) [DesignatorStmtInc]
+                ) [DesignatorStmt]
+              ) [MatchedStmt]
+            ) [Statement]
+          ) [StmtList]
+          Statement(
+            MatchedStmt(
+              DesignatorStmt(
+                DesignatorStmtAssign(
+                  DesignatorIdent(
+                   c
+                  ) [DesignatorIdent]
+                  Assignop(
+                  ) [Assignop]
+                  Exprss(
+                    TermExpr(
+                      TermFactor(
+                        FactorNumber(
+                         4
+                        ) [FactorNumber]
+                      ) [TermFactor]
+                    ) [TermExpr]
+                  ) [Exprss]
+                ) [DesignatorStmtAssign]
+              ) [DesignatorStmt]
+            ) [MatchedStmt]
+          ) [Statement]
+        ) [StmtList]
+        Statement(
+          MatchedStmt(
+            ReturnVoidStmt(
+            ) [ReturnVoidStmt]
+          ) [MatchedStmt]
+        ) [Statement]
+      ) [StmtList]
+    ) [MethodDecl]
+  ) [MethodDeclarations]
+) [Program]
+
+=====================SYMBOL TABLE DUMP=========================
+Type int: int, -1, -1 
+Type char: char, -1, -1 
+Con eol: char, 10, 0 
+Con null: Class [], 0, 0 
+Meth chr: char, 0, 1 
+   Var i: int, 0, 1 
+
+Meth ord: int, 0, 1 
+   Var ch: char, 0, 1 
+
+Meth len: int, 0, 1 
+   Var arr: Arr of notype, 0, 1 
+
+Type bool: , 0, 1 
+Prog mojProgram: notype, 0, 1 
+   Con f: int, 2, 3    Var ch: char, 0, 1 
+   Var a: int, 1, 1 
+   Var arg: int, 2, 1 
+   Var x: int, 3, 1 
+
+   Con b: int, 4, 0 
+   Con c: int, 4, 0 
+   Con size: int, 10, 0 
+   Var d: int, 0, 0 
+   Var board: notype, 1, 0 
+   Type krca: Class [Fld a: int, 0, 1 Fld b: int, 1, 1 Var c: int, 2, 1 Var d: int, 3, 1 ], 0, 2 
+   Type Board: Class [Fld rows: int, 0, 1 Var columns: int, 1, 1 ], 0, 1 
+   Meth main: notype, 0, 0 
+      Var x: int, 0, 1 
+      Var i: int, 1, 1 
+      Var c: char, 2, 1 
